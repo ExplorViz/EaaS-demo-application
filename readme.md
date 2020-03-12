@@ -10,7 +10,7 @@ A sample Java application to showcase ExplorViz as a Service, based on [Spring P
 
 When submitting builds to EaaS, they need to be wrapped inside a docker image that runs both the application and, if necessary, some load to create more interesting visualizations.
 
-This repository serves as an example how to make use of [EaaS-base-image](https://github.com/Marco01809/EaaS-base-image) which helps you create these build artifact images and [EaaS-action](https://github.com/Marco01809/EaaS-action) which will submit these images to an EaaS instance.
+This repository serves as an example how to create such images (by using [EaaS-base-image](https://github.com/Marco01809/EaaS-base-image)) and submit them to your EaaS instance.
 
 ## Building & Running locally
 
@@ -37,9 +37,13 @@ First, run an instance of [ExplorViz as a Service](https://github.com/Marco01809
 
 Fork this repository on GitHub and enable GitHub Actions. A workflow is included (`.github/workflows/build.yml`) that will build this project and submit a build artifact to an EaaS-instance whenever changes are pushed to the repository.
 
-Configure the instance URL in the workflow file and create a secret in the GitHub repository settings labeled `EAAS_SECRET`. You can obtain this secret from the secrets page of the project in EaaS.
+Then configure the workflow by creating secrets in the GitHub repository settings:
 
-You can then make changes to the application and push them to the repository and the GitHub Action will automatically create a build and submit it to the configured EaaS instance.
+- `EAAS_URL`: Set this to the URL where your EaaS instance can be reached from the internet
+- `EAAS_PROJECT`: Set this to the ID of the EaaS project, you can find it on the projects settings page
+- `EAAS_SECRET`: You can obtain one from the projects secrets page
+
+You can then make changes to the application and push them to the repository and the GitHub Action will automatically create a build and submit it to the configured EaaS instance. You should be able to see and run these builds through the EaaS webinterface.
 
 ## License
 
