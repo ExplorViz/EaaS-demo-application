@@ -39,11 +39,11 @@ Fork this repository on GitHub and enable GitHub Actions. A workflow is included
 
 Then configure the workflow by creating secrets in the GitHub repository settings:
 
-- `EAAS_URL`: Set this to the URL where your EaaS instance can be reached from the internet
+- `EAAS_URL`: Set this to the URL where your EaaS instance can be reached from the internet (Important: no trailing /)
 - `EAAS_PROJECT`: Set this to the ID of the EaaS project, you can find it on the projects settings page
 - `EAAS_SECRET`: You can obtain one from the projects secrets page
 
-You can then make changes to the application and push them to the repository and the GitHub Action will automatically create a build and submit it to the configured EaaS instance. You should be able to see and run these builds through the EaaS webinterface.
+You can then make changes to the application and push them to the repository and the GitHub Action will automatically create a build and submit it to the configured EaaS instance. You can see and run these builds through the EaaS webinterface.
 
 ## License
 
