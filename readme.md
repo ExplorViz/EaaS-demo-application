@@ -31,11 +31,13 @@ Or you can run it from Maven directly using the Spring Boot Maven plugin. If you
 ./mvnw spring-boot:run
 ```
 
-## Submitting builds to EaaS
+## Using ExplorViz as a Service
 
 First, run an instance of [ExplorViz as a Service](https://github.com/Marco01809/EaaS-server) on a server reachable from the internet. Create a project using any name you want.
 
-Fork this repository on GitHub and enable GitHub Actions. A workflow is included (`.github/workflows/build.yml`) that will build this project and submit a build artifact to an EaaS-instance whenever changes are pushed to the repository.
+### Submit builds from GitHub Actions
+
+Fork this repository on GitHub and enable GitHub Actions. A workflow is included (`.github/workflows/build.yml`) that will build this project and submit a build artifact to an EaaS instance whenever changes are pushed to the repository.
 
 Then configure the workflow by creating secrets in the GitHub repository settings:
 
@@ -44,6 +46,18 @@ Then configure the workflow by creating secrets in the GitHub repository setting
 - `EAAS_SECRET`: You can obtain one from the projects secrets page
 
 You can then make changes to the application and push them to the repository and the GitHub Action will automatically create a build and submit it to the configured EaaS instance. You can see and run these builds through the EaaS webinterface.
+
+### Submit builds from Travis-CI
+
+Fork this repository on GitHub and login on [Travis](https://travis-ci.org), make sure Travis can see the repository. A travis configuration is included (`.travis.yml`) that will build this project and submit a build artifact to an EaaS instance.
+
+Then configure some environment variables in Travis:
+
+- `EAAS_URL`: Set this to the URL where your EaaS instance can be reached from the internet (Important: no trailing /)
+- `EAAS_PROJECT`: Set this to the ID of the EaaS project, you can find it on the projects settings page
+- `EAAS_SECRET`: You can obtain one from the projects secrets page. This should be set to hidden
+
+You can then make changes to the application and push them to the repository and Travis will automatically create a build and submit it to the configured EaaS instance. You can see and run these builds through the EaaS webinterface.
 
 ## License
 
