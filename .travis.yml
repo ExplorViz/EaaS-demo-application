@@ -1,0 +1,22 @@
+language: java
+dist: bionic # Ubuntu 18.04
+jdk:
+  - openjdk8
+
+services:
+  - docker
+
+after_script:
+  # The first 4 commands are only necessary because EaaS-base-image is not on DockerHub yet
+  - git clone https://github.com/Marco01809/EaaS-base-image.git
+  - cd EaaS-base-image
+  - ./build-all.sh
+  - cd ..
+  - ./submit-eaas.sh
+
+env:
+  global:
+    - IMAGE_CONTEXT="."
+    - IMAGE_DOCKERFILE="eaas-image/Dockerfile"
+    - BUILD_NAME="Build $TRAVIS_BUILD_NUMBER"
+    # EAAS_URL, EAAS_PROJECT and EAAS_SECRET specified in Travis CI secrets
