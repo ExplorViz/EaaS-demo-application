@@ -1,6 +1,6 @@
 FROM explorviz/eaas-base:11-jre-alpine
 
-# We need wget to make HTTP request to put load on the application, unzip to unpack the jar
+# We need curl to make HTTP request to put load on the application, unzip to unpack the jar
 RUN apk add --no-cache unzip curl
 
 # Set a nice name to display in ExplorViz
