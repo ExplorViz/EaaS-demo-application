@@ -8,7 +8,7 @@ services:
 
 after_script:
   # The first 4 commands are only necessary because EaaS-base-image is not on DockerHub yet
-  - git clone https://github.com/Marco01809/EaaS-base-image.git
+  - git clone https://github.com/ExplorViz/EaaS-base-image.git
   - cd EaaS-base-image
   - ./build-all.sh
   - cd ..
