@@ -23,7 +23,7 @@ jobs:
     - name: Checkout EaaS-base-image
       uses: actions/checkout@v2
       with:
-        repository: "Marco01809/EaaS-base-image"
+        repository: "ExplorViz/EaaS-base-image"
         path: "EaaS-base-image"
     - name: Build EaaS-base-image
       run: ./build-all.sh
